@@ -1,0 +1,128 @@
+<body>
+  <h1>Movie Booking App</h1>
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+<mat-card-content>
+<form (ngSubmit)="loginUser()">
+  <p id="p1">{{error}}</p>
+  <mat-form-field class="example-full-width">
+    <mat-label>User Name</mat-label>
+    <input matInput [(ngModel)]="user.username" name="username" required>    
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password" required>  
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field><br>
+  <mat-form-field class="example-full-width">
+    <mat-label>Select Role</mat-label>
+    <mat-select [(ngModel)]="user.userRole" name="userRole">
+     
+      <mat-option *ngFor="let r of userRole1" [value]="r.name">{{r.name}}</mat-option>
+    </mat-select>     
+  </mat-form-field>
+  <div class="col">
+   
+    <a href="forgotpwd">Forgot password?</a>
+  
+  <mat-card-actions align="end">  
+  <button mat-raised-button color="primary" class="example-full-width" (click)="loginUser()" >Login</button>
+</mat-card-actions>
+
+</div>
+<p class="text-center">Don't have account? <a href="registerUser"
+  class="fw-bold text-body"><u>SignUp</u></a></p>
+</form>
+</mat-card-content>
+</mat-card>
+</body>
+<app-footer></app-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--h1>Welcome to MovieBooking App</h1>
+<!--<div class="card" style="width: 35rem;margin-left: 330px; border: 0cm;">
+<div class="jumbotron" style="width: 38rem;margin-left: 330px; border: 0cm;">
+<form #loginform="ngForm" (ngSubmit)="loginUser()">
+    
+<div class="form-group">
+    <label class="form-label" for="form3Example97"> Username </label>
+    <input type="email" required id="username" class="form-control form-control-lg" 
+                  placeholder="username" [(ngModel)]="user.username" name="username" ng-required="true"/>
+    <label class="form-label" for="form3Example97"> Password </label>
+    <input type="email" required id="password" class="form-control form-control-lg" 
+                                placeholder="password" [(ngModel)]="user.password" name="password" ng-required="true"/>
+ </div>
+
+ <div>
+    <button type="button" (click)="loginUser()" class="btn btn-info">Login</button>
+    <button type="button" (click)="registerUser()" class="btn btn-primary" style="margin: 5px;">New User</button>
+    <button type="button" (click)="forgotpassword()" class="btn btn-warning" style="margin: 5px;">forgot Password</button>
+    
+
+
+
+ </div>
+
+</form>
+<h1 >Welcome to MovieBooking App</h1>
+<div class="jumbotron" style="width: 38rem;margin-left: 330px; border: 0cm;">
+   <h3 style="color:red">{{msg}}</h3>
+<form>
+  
+   <div class="form-outline mb-4">
+     <input type="text" id="username" [(ngModel)]="user.username" name="username" class="form-control" />
+     <label class="form-label" for="username">Username</label>
+   </div>
+ 
+  
+   <div class="form-outline mb-4">
+      <input type="password" id="password" [(ngModel)]="user.password" name="password" class="form-control" />
+      <label class="form-label" for="username">Password</label>
+    </div>
+
+
+ 
+  
+   <div class="row mb-4">
+     <div class="col d-flex justify-content-center">
+      
+       <div class="form-check">
+         <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
+         <label class="form-check-label" for="form2Example34"> check me </label>
+       </div>
+     </div>
+ 
+     <div class="col">
+    
+       <a href="forgotpwd">Forgot password?</a>
+     </div>
+   </div>
+ 
+  
+   <button type="submit" class="btn btn-primary btn-block mb-4" (click)="loginUser()">Sign in</button>
+ 
+  
+   <div class="text-center">
+     <p>Not a member? <a href="registerUser">Register</a></p>
+     
+   </div>
+ </form>
+</div>-->
+

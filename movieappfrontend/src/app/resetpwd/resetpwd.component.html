@@ -1,0 +1,36 @@
+
+<div class="jumbotron" style="width: 38rem;margin-left: 330px; border: 0cm;">
+<h2>User details</h2>
+<div>UserId:{{user.userId}}</div>
+<div>Username:{{user.username}}</div>
+<h3>Answer the secret question before you rest password</h3>
+<div>
+    <select >
+      <option *ngFor="let q of qns1" [ngValue]="q.name">{{q.name}}</option>
+    </select>
+    <input type="text" required id="ans" class="form-control form-control-sm"
+    placeholder="city" [(ngModel)]="user1.ans" name="ans" ng-required="true"/>
+  </div>  
+
+    <div *ngIf="toDisplay">
+        <button type="button" class="btn btn-success btn-sm" (click)="getMatch(user.userId,user1.ans)">Reset</button>
+    </div>
+<div *ngIf="display">
+<div >
+    <label class="form-label" for="password"> Enter New Password </label>
+    <input type="password" required id="password" class="form-control form-control-sm"
+    placeholder="new password" [(ngModel)]="user1.password" name="password" ng-required="true"/>
+  </div>  
+ <div>
+    <label class="form-label" for="password">Confirm Password </label>
+    <input type="password" required id="password1" class="form-control form-control-sm"
+    placeholder="confirm password" [(ngModel)]="pwd" name="password" ng-required="true"/>
+   </div> 
+
+<span>Not My account? <a href="login">login</a></span>
+<div>
+<button type="button" class="btn btn-success btn-sm" (click)="save()">Save</button>
+</div>
+</div>
+</div>
+<app-footer></app-footer>

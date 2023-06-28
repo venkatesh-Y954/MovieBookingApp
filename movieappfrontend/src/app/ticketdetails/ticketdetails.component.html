@@ -1,0 +1,56 @@
+
+  <mat-card class="card-demo">
+    <mat-card-header>
+      <mat-card-title>Your Ticket Details</mat-card-title>
+      <mat-card-subtitle>Take a screen shot.</mat-card-subtitle>
+    </mat-card-header>
+   <br><br>
+  <mat-card-content>
+  <form class="example-form" #movieForm="ngForm" novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">    
+    <table class="table table-bordered">
+        <tr>
+        <td>TransactionID</td>
+        <td>{{id}}</td>
+    </tr>
+    <tr>
+        <td>Movie Name</td>
+            <td>{{name}}</td>
+    </tr>
+    <tr>
+        <td>Theatre</td>
+            <td>{{theatre}}</td>
+    </tr>
+    <tr>
+        
+        <td>No Of Persons</td>
+            <td>{{noofseats}}</td>
+    </tr>
+    <tr>
+        
+        <td>Seat No</td>
+            <td>{{seatno}}</td>
+    </tr>
+   
+    
+</table>
+      <mat-card-actions align="end">  
+        <button mat-button mat-dialog-close (click)="view()">close</button>
+    </mat-card-actions>  
+  </form>
+  </mat-card-content>
+  </mat-card>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 

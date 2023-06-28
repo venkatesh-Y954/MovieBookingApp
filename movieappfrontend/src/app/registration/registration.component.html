@@ -1,0 +1,204 @@
+<!--<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">-->
+ <!-- <mat-card class="card-demo">
+    <h1>
+    <mat-card-header>
+      <mat-card-title>REGISTRATION FORM</mat-card-title>
+      <mat-card-subtitle>Enter your details to sign up</mat-card-subtitle>
+    </mat-card-header>
+  </h1>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="form" (ngSubmit)="registerUser()"  novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>User Name:</mat-label>
+          <mat-icon matPrefix>account_circle</mat-icon>
+          <input  type = "text" matInput placeholder="Enter Username" formControlName="username" [(ngModel)]="user.username"   required>
+          <mat-error *ngIf="form.controls['username'].invalid && form.controls['username'].touched">
+            <span *ngIf="form.get('username').hasError('minlength')" style="font-size:medium;">Min length is <strong>5</strong> characters</span>
+            <span *ngIf="form.get('username').hasError('required')" style="font-size:medium;">Username is <strong>required</strong></span>
+          </mat-error>
+        </mat-form-field>
+       
+        <mat-form-field class="example-full-width">
+          <mat-label>Password:</mat-label>
+          <mat-icon matPrefix>lock_outline</mat-icon>
+          <input type="password" [type]="hide ? 'password' : 'text'" matInput placeholder="Enter Password" formControlName="password" [(ngModel)]="user.password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
+            <span *ngIf="form.get('password').hasError('required')" style="font-size:medium;">Password is <strong>Required</strong></span>
+            <span *ngIf="form.get('password').hasError('pattern')" style="font-size:medium;">Password should contain atleast one uppercase,one numeric,min 8 characters,lowercase and special character </span>
+          </mat-error>
+        </mat-form-field>
+
+       
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <mat-icon matPrefix>lock_outline</mat-icon>
+          <input matInput type="password" [type]="hide ? 'password' : 'text'" placeholder="confirm password" [(ngModel)]="user.confirmpwd"
+          (input)="validatePassword(form)" formControlName="confirmpwd" ng-required="true">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls['confirmpwd'].touched">
+            <span *ngIf="form.get('confirmpwd').hasError('required')" style="font-size:medium;">Confirm Password is <strong>Required</strong></span>
+            <mat-error *ngIf="form.controls['confirmpwd'].hasError('passwordMismatch')" style="font-size:medium;">Password and Confirm Password doesnot match</mat-error>
+        </mat-error>
+      </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>Email:</mat-label>
+          <mat-icon matPrefix>email</mat-icon>
+          <input type="text" matInput placeholder="Enter Email" formControlName="email" [(ngModel)]="user.email" required>
+          <mat-error *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+            <span *ngIf="form.get('email').hasError('pattern')" style="font-size:medium;">Email pattern Example is <strong>email123@gmail.com</strong></span>
+            <span *ngIf="form.get('email').hasError('required')" style="font-size:medium;">Email is <strong>required</strong></span>
+          </mat-error>
+        </mat-form-field>
+       <br>
+       <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Select Role</mat-label>
+          <mat-select [(ngModel)]="user.userRole" formControlName="userRole">
+            <!--<mat-option value="one">Admin</mat-option>
+            <mat-option *ngFor="let r of userRole1" [value]="r.name">{{r.name}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.controls['userRole'].invalid && form.controls['userRole'].touched">
+            <span *ngIf="form.get('userRole').hasError('required')" style="font-size:medium;">UserRole is <strong>Required</strong></span>
+          </mat-error>  
+          </mat-form-field>
+       
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose a Secret Question</mat-label>
+          <mat-icon matPrefix>Question</mat-icon>
+          <mat-select [(ngModel)]="user.question" formControlName="question">
+              <mat-option *ngFor="let q of qns1" [value]="q.name">{{q.name}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.controls['question'].invalid && form.controls['question'].touched">
+            <span *ngIf="form.get('question').hasError('required')" style="font-size:medium;">SecretQuestion is <strong>Required</strong></span>
+          </mat-error>
+        </mat-form-field>
+       
+        <mat-form-field class="example-full-width">
+          <mat-label>Your Answer:</mat-label>
+          <mat-icon matPrefix>Answer</mat-icon>
+          <input type="text" matInput placeholder="Enter Your Answer" formControlName="ans" [(ngModel)]="user.ans" required>
+          <mat-error *ngIf="form.controls['ans'].invalid && form.controls['ans'].touched">
+            <span *ngIf="form.get('ans').hasError('required')" style="font-size:medium;">Answer is <strong>Required</strong></span>
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-card-actions align="end">  
+          <button mat-raised-button color="primary" type="submit" >Register</button>
+        </mat-card-actions>
+      <h4><span class="text-center">Have already an account? <a routerLink="/login"
+        class="fw-bold text-body"><u style="color:rgb(94, 52, 172);">Login here</u></a></span></h4>
+        <br>
+        <br>
+    </form>
+    
+  </mat-card-content>
+  </mat-card>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="demo">
+<mat-card class="card-demo">
+  <mat-card-header>
+    <mat-card-title>Registration Form</mat-card-title>
+    <mat-card-subtitle>Enter your details to sign up</mat-card-subtitle>
+  </mat-card-header>
+
+<mat-card-content>
+<form class="example-form"  (ngSubmit)="registerUser()"   #registerForm="ngForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>User Name</mat-label>
+      <input matInput [(ngModel)]="user.username" name="username" required>  
+      <mat-error *ngIf="checkError('username', 'required')">Shop Name is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [(ngModel)]="user.email" name="email" required
+      pattern="^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$">
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>   
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password" required>  
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Select Role</mat-label>
+      <mat-select [(ngModel)]="user.userRole" name="userRole">
+        <!--<mat-option value="one">Admin</mat-option>
+        <mat-option *ngFor="let r of userRole1" [value]="r.name">{{r.name}}</mat-option>
+      </mat-select>     
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width" >
+      <mat-label>Select Secret Question</mat-label>
+      <mat-select [(ngModel)]="user.question" name="question">
+        <mat-option *ngFor="let q of qns1" [value]="q.name">{{q.name}}</mat-option>
+       <!-- <mat-option value="Which is your favorite city?">Which is your favorite city?</mat-option>
+        <mat-option value="What is your birth place?">What is your birth place?</mat-option>
+        <mat-option value="What is your favorite Movie?">What is your favorite Movie?</mat-option>
+      </mat-select>     
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Your answer</mat-label>
+      <input matInput [(ngModel)]="user.ans" name="ans"  required>
+    </mat-form-field>
+    <p class="text-center">Have already an account? <a href="#!"
+      class="fw-bold text-body"><u>Login here</u></a></p>
+    <mat-card-actions align="end">  
+    <button mat-raised-button color="primary" (click)="registerUser()" >Register</button>
+  </mat-card-actions>
+</form>
+</mat-card-content>
+</mat-card>
+</div>-->
+
+
+
+
+
+
+
+
+
+
+

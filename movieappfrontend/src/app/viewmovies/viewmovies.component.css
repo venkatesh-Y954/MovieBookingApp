@@ -1,0 +1,43 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 0%;
+  }
+
+  .flex{
+    text-align: end;
+    margin-left: 77%;
+    width: 15%;
+    padding-top: 5px;
+   
+  }
+  .demo-button-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .demo-button-container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-left: 95px;
+
+  }
+  .mat-elevation-z8{
+    width: 85%;
+    margin-left: 85px;
+    
+    border: 2px solid black;
+   
+    
+  }
+  .mat-header-cell {
+    padding: 0.2rem !important;
+  }
+  

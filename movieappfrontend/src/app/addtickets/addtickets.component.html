@@ -1,0 +1,131 @@
+
+
+  <mat-card class="card-demo">
+    <mat-card-header>
+      <mat-card-title>Book Tickets</mat-card-title><br><br>
+    </mat-card-header>
+  
+  <mat-card-content>
+  <form class="example-form" #ticketForm="ngForm" (ngSubmit)="addTicket()" novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <table class="table table-bordered">
+       <tr>
+         <td>Movie ID</td>
+         <td>{{movie.movieId}}</td>
+       </tr>
+       <tr>
+        <td>Movie Name</td>
+        <td>{{movie.movieName}}</td>
+      </tr>
+      <tr>
+        <td>Theatre</td>
+        <td>{{movie.theatre}}</td>
+      </tr>
+      <tr>
+        <td>Available Seats</td>
+        <td>{{movie.availableSeats}}</td>
+      </tr>
+    </table>
+        
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter No of seats</mat-label>
+        <input matInput [(ngModel)]="ticket.noOfSeats" name="movieId" required>    
+      </mat-form-field>
+      
+    
+      <mat-card-actions align="end">  
+        <button mat-button mat-dialog-close>close</button>
+      <button mat-raised-button mat-dialog-close color="primary" (click)="addTicket()" >ADD</button>
+    </mat-card-actions>  
+  </form>
+  </mat-card-content>
+  </mat-card>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--
+   <h2 style="margin-left: 500px;">Customer Registration Form</h2>
+  <div class="jumbotron" style="width: 38rem;margin-left: 330px;">
+   
+    <form #registrationform="ngForm" (ngSubmit)="registerUser()">
+      
+      <div class="form-group row">
+        <div>
+          
+          <input type="text" required id="username" class="form-control form-control-sm" 
+                    placeholder="username" [(ngModel)]="user.username" name="username" 
+                    *ngIf="display"/>
+          <label class="form-label" for="username"> Username </label>
+          <div id="username" *ngIf="todisplay1" style="color: red;">
+               Username cannot be empty.
+          </div>
+        </div>
+        <br>
+      <div>
+        
+      <input type="email" required id="email" class="form-control form-control-sm" 
+        placeholder="email" [(ngModel)]="user.email" name="email" ng-required="true"/>
+        <label class="form-label" for="email"> Email ID </label>
+        <div id="email" *ngIf="todisplay2" style="color: red;">
+          Email cannot be empty.
+     </div>
+      </div>
+      <div>
+        
+        <select class="form-select form-select-sm" id="userrole" name="userrole" [(ngModel)]="user.userRole">
+          <option [ngValue]="role">Customer</option>
+          </select>
+          <label class="form-label" for="userrole"> User Role </label>
+          <div id="userrole" *ngIf="todisplay3" style="color: red;">
+            Role cannot be empty.
+       </div>
+      </div>
+      <div>
+       
+        <input type="password" required id="form2Example1" class="form-control form-control-sm"
+        placeholder="password" [(ngModel)]="user.password" name="password" ng-required="true"/>
+        <label class="form-label" for="password"> Password </label>
+        <div id="password" *ngIf="todisplay4" style="color: red;">
+          password cannot be empty.
+     </div>
+      </div>
+      <div>
+       
+        <select class="form-select form-select-sm" id="question" name="question" [(ngModel)]="user.question">
+          <option [ngValue]="qsn">Which is your fav city</option>
+          </select>
+          <label class="form-label" for="question">Secret Question </label>
+          <div id="question" *ngIf="todisplay5" style="color: red;">
+            Secret Question cannot be empty.
+       </div>
+        </div>
+        <div>
+         
+        <input type="text" required id="answer" class="form-control form-control-sm"
+        placeholder="Answer" [(ngModel)]="user.ans" name="answer" required/>
+        <label class="form-label" for="answer"> Answer </label>
+        <div id="ans" *ngIf="todisplay6" style="color: red;">
+          Answer cannot be empty.
+     </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end pt-3">
+        <button type="reset" class="btn btn-light btn-sm">Reset all</button>
+        <button type="button" class="btn btn-success btn-sm ms-2" (click)="registerUser()">Register</button>
+      </div>
+      <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+        class="fw-bold text-body"><u>Login here</u></a></p>
+  
+    </form>
+  </div> -->
